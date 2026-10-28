@@ -6,7 +6,7 @@
   "license": "MIT",
   "packageManager": "pnpm@9.12.0",
   "engines": {
-    "node": "20.x"
+    "node": "22.x"
   },
   "scripts": {
     "build:wasm": "wasm-pack build packages/zekit-ts --target web --out-dir pkg",
