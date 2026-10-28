@@ -1,0 +1,32 @@
+{
+  "name": "zekit-ts",
+  "version": "0.1.0",
+  "description": "ZeKit TypeScript + WASM SDK — ZIP-321, Unified Address inspection, and Zod ReceiptBundle validators (zero secret keys).",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "pkg",
+    "src/ts"
+  ],
+  "scripts": {
+    "build:wasm": "wasm-pack build . --target web --out-dir pkg",
+    "build": "tsup src/ts/index.ts --format esm --dts --clean",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.2"
+  }
+}

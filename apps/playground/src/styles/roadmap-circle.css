@@ -1,0 +1,122 @@
+.zekit-roadmap {
+  position: relative;
+  width: 520px;
+  height: 520px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.zekit-roadmap-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+  background: radial-gradient(circle at 50% 50%,
+      color-mix(in srgb, var(--surface) 65%, transparent),
+      transparent 60%);
+}
+
+.zekit-roadmap-rotate {
+  position: absolute;
+  inset: 0;
+  transform: rotate(var(--rot, 0deg));
+  transition: transform 420ms cubic-bezier(0.2, 1, 0.2, 1);
+}
+
+.zekit-roadmap-node {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform:
+    rotate(calc(var(--angle) + var(--rot, 0deg)))
+    translateX(var(--radius, 210px))
+    rotate(calc(-1 * (var(--angle) + var(--rot, 0deg))));
+  transform-origin: center;
+  transition: transform 420ms cubic-bezier(0.2, 1, 0.2, 1);
+}
+
+.zekit-roadmap-dotbtn {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+html.dark .zekit-roadmap-dotbtn {
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+}
+
+.zekit-roadmap-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+.zekit-roadmap-dotbtn.active {
+  transform: scale(1.12);
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+}
+
+.zekit-roadmap-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 310px;
+  max-width: calc(100% - 72px);
+  transform: translate(-50%, -50%);
+  border-radius: 28px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 18px 18px;
+  box-shadow: 0 26px 80px rgba(0,0,0,0.10);
+}
+
+html.dark .zekit-roadmap-center {
+  box-shadow: 0 40px 120px rgba(0,0,0,0.45);
+}
+
+.zekit-roadmap-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  padding: 6px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.zekit-roadmap-title {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 650;
+  letter-spacing: -0.2px;
+  color: var(--text);
+}
+
+.zekit-roadmap-body {
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.zekit-roadmap-kbd {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 11px;
+  color: var(--text);
+}
+
+.zekit-roadmap-hint {
+  margin-top: 10px;
+  font-size: 11px;
+  color: var(--muted);
+}

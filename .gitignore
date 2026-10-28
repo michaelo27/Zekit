@@ -1,0 +1,41 @@
+# Rust & WASM artifacts
+/target/
+**/target/
+**/pkg/
+Cargo.lock
+
+# Node / JS / TS artifacts
+node_modules/
+**/node_modules/
+.pnpm-store/
+.pnpm/
+dist/
+**/dist/
+build/
+**/build/
+.next/
+.turbo/
+.vite/
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# Local wallet databases & secrets (NEVER commit)
+*.sqlite
+*.sqlite3
+*.db
+.zekit/
+*.seed
+*.key
+.env
+.env.local
+.env.*.local
+
+# OS & editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+*.log

@@ -1,0 +1,25 @@
+[package]
+name = "zekit"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+description = "ZeKit core SDK — Orchard-first shielded transactions, ZIP-321, lightwalletd sync, viewing-key monitoring, and ReceiptBundles."
+
+[features]
+default = ["wallet-runtime"]
+wallet-runtime = ["dep:tokio"]
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+chrono.workspace = true
+hex.workspace = true
+base64.workspace = true
+sha2.workspace = true
+url.workspace = true
+tracing.workspace = true
+tokio = { workspace = true, optional = true }

@@ -1,0 +1,138 @@
+/* Bigger + calmer proportions */
+
+.zekit-wallet-base {
+  background: linear-gradient(180deg, #3b9eff 0%, #2b7de9 100%);
+  box-shadow:
+    0 24px 60px rgba(43, 125, 233, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+/* Cards */
+.zekit-card {
+  position: absolute;
+  width: 380px;
+  height: 235px;
+  border-radius: 20px;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.16);
+  transition:
+    transform 0.52s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.35s ease,
+    z-index 0s;
+  will-change: transform;
+}
+
+/* Shine */
+.zekit-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 18%,
+    rgba(255, 255, 255, 0.28) 44%,
+    transparent 72%
+  );
+  background-size: 200% 200%;
+  background-position: var(--shine-x, 50%) var(--shine-y, 50%);
+  pointer-events: none;
+  transition: background-position 0.1s ease;
+  z-index: 2;
+}
+
+/* Card colors + stacked positions */
+.zekit-card-builder {
+  background: linear-gradient(135deg, #141414 0%, #2a2a2a 55%, #0d0d0d 100%);
+  color: #fff;
+  transform: translateY(-66px) scale(0.965);
+  z-index: 3;
+}
+
+.zekit-card-parser {
+  background: linear-gradient(135deg, #a8ffa5 0%, #80f07d 55%, #57d957 100%);
+  color: #0b0b0b;
+  transform: translateY(-33px) scale(0.985);
+  z-index: 2;
+}
+
+.zekit-card-cli {
+  background: linear-gradient(135deg, #7b6cff 0%, #635bff 55%, #4f46e5 100%);
+  color: #fff;
+  transform: translateY(0) scale(1);
+  z-index: 1;
+}
+
+/* Active pulled out */
+.zekit-card.active {
+  transform: translateY(-102px) scale(1.03) !important;
+  z-index: 10 !important;
+  box-shadow: 0 36px 80px rgba(0, 0, 0, 0.22);
+}
+
+/* Card content */
+.zekit-card-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  padding: 26px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.zekit-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.zekit-dots {
+  font-size: 22px;
+  letter-spacing: 2px;
+  opacity: 0.65;
+  line-height: 1;
+}
+
+.zekit-brand {
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: -0.4px;
+}
+
+.zekit-card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.zekit-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.zekit-name {
+  font-size: 15px;
+  font-weight: 650;
+  opacity: 0.98;
+}
+
+.zekit-number {
+  font-size: 13px;
+  letter-spacing: 0.15px;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.88;
+}
+
+.zekit-expiry {
+  font-size: 12px;
+  opacity: 0.8;
+  text-align: right;
+  font-weight: 650;
+}

@@ -1,0 +1,49 @@
+[workspace]
+resolver = "2"
+members = [
+  "crates/zekit",
+  "crates/zekit-cli",
+  "packages/zekit-ts",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75"
+license = "MIT"
+authors = ["ZeKit Contributors"]
+repository = "https://github.com/zekit-dev/zekit"
+homepage = "https://github.com/zekit-dev/zekit"
+
+[workspace.dependencies]
+# Serialization & data formats
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+thiserror = "1.0"
+anyhow = "1.0"
+chrono = { version = "0.4", default-features = false, features = ["clock", "serde", "std"] }
+hex = "0.4"
+base64 = "0.22"
+sha2 = "0.10"
+url = "2.5"
+
+# Async & CLI
+tokio = { version = "1.39", features = ["rt-multi-thread", "macros", "sync", "time"] }
+clap = { version = "4.5", features = ["derive", "env"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt"] }
+
+# WASM bindings
+wasm-bindgen = "0.2"
+serde-wasm-bindgen = "0.6"
+
+# Internal crates
+zekit = { path = "crates/zekit" }
+
+# TODO(Phase 2): Wire librustzcash / Orchard / gRPC lightwalletd crates as needed
+# zcash_address = "0.6"
+# zcash_protocol = "0.4"
+# zip321 = "0.3"
+# orchard = "0.10"
+# tonic = { version = "0.12", features = ["tls"] }
+# prost = "0.13"
