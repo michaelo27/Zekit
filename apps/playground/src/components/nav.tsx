@@ -13,6 +13,7 @@ const NAV: { id: PlaygroundRoute; label: string }[] = [
   { id: "parser", label: "Parser" },
   { id: "ua-inspector", label: "UA Inspector" },
   { id: "receipts", label: "Receipts" },
+  { id: "docs", label: "Docs" },
 ];
 
 export function Nav({

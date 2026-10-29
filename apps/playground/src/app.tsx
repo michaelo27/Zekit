@@ -7,10 +7,14 @@ import { BuilderRoute } from "./routes/builder";
 import { ParserRoute } from "./routes/parser";
 import { UaInspectorRoute } from "./routes/ua-inspector";
 import { ReceiptsRoute } from "./routes/receipts";
+import { DocsRoute } from "./routes/docs";
 
 export function App() {
   const [activeRoute, setActiveRoute] = useState<PlaygroundRoute>("home");
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
+  {
+    activeRoute === "docs" && <DocsRoute />;
+  }
 
   const pushToast = (title: string, tone: ToastMessage["tone"] = "info") => {
     const id = `${Date.now()}-${Math.random().toString(36).slice(2, 6)}`;
@@ -31,7 +35,12 @@ export function App() {
         <UaInspectorRoute onToast={pushToast} />
       )}
       {activeRoute === "receipts" && <ReceiptsRoute onToast={pushToast} />}
-
+      {activeRoute === "home" && (
+        <HomeRoute onNavigate={setActiveRoute} onToast={pushToast} />
+      )}
+      {activeRoute === "docs" && <DocsRoute />}
+      {activeRoute === "builder" && <BuilderRoute onToast={pushToast} />}
+      ...
       <ToastViewport
         toasts={toasts}
         onDismiss={(id) =>
