@@ -35,9 +35,6 @@ export function App() {
         <UaInspectorRoute onToast={pushToast} />
       )}
       {activeRoute === "receipts" && <ReceiptsRoute onToast={pushToast} />}
-      {activeRoute === "home" && (
-        <HomeRoute onNavigate={setActiveRoute} onToast={pushToast} />
-      )}
       {activeRoute === "docs" && <DocsRoute />}
       {activeRoute === "builder" && <BuilderRoute onToast={pushToast} />}
       ...
